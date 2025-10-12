@@ -1,0 +1,24 @@
+@use 'vars' as *;
+
+header{
+    padding: 0;
+    .container{
+        display: flex;
+        width:250px;
+        height: 100vh;
+
+        .redline{
+            background-color: $main_color;
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            .logo{
+                background-color:white;
+                padding: 20px 0;
+                margin: 300px auto auto auto;
+            }
+        }
+    }
+
+}
