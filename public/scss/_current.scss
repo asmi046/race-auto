@@ -67,6 +67,18 @@ img {
     }
 }
 
+.social {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    .sprite_icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
 
 @media (max-width: 1440px) {
     .container {
