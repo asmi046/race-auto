@@ -1,72 +1,303 @@
 @use 'vars' as *;
 
-header{
+.hero-section {
+    position: relative;
+    min-height: 100vh;
     padding: 0;
-    .container{
-        display: flex;
-        height: 100vh;
+    background-image: url('../img/main_f.webp');
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+    // Оверлей
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    .container {
         position: relative;
+        z-index: 2;
+        min-height: calc(100vh - 80px);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-        .redline{
-            background-color: $main_color;
+    // Шапка
+    .hero-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: auto;
+
+        .logo img {
+            height: 50px;
+        }
+
+        .social {
             display: flex;
-            align-items: center;
-            height: 100%;
-            width:250px;
-            margin: 0 auto;
+            gap: 20px;
 
-            .logo{
-                background-color:white;
-                padding: 20px 0;
-                width:250px;
-                margin: 200px auto auto auto;
+            a {
+                color: white;
+                transition: opacity 0.3s ease;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+
+                .sprite_icon {
+                    width: 32px;
+                    height: 32px;
+                    fill: white;
+                }
             }
-        }
-
-        .contacts{
-            position: absolute;
-            width:100%;
-            max-width: 500px;
-            min-width: 310px;
-            padding: 20px 10px;
-            left: calc(50% - 260px);
-            top:400px;
-            background-color: white;
-            text-align: center;
-            border-top:1px solid $main_color;
-            border-bottom:1px solid $main_color;
-
-            .phone_main {
-                font-size: 20px;
-                font-weight: bold;
-
-                line-height: 1.5;
-            }
-        }
-
-        label{
-            text-align: left;
         }
     }
 
-}
+    // Контент
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: auto 0;
 
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out;
+        }
 
+        .hero-phone {
+            font-size: 32px;
+            margin-bottom: 30px;
 
-@media (max-width: 480px) {
-    header  {
-        .container {
-            .redline{
-                height: 110%;
-                .logo{
-                    margin: 70px auto auto auto;
+            a {
+                color: white;
+                text-decoration: none;
+                transition: opacity 0.3s ease;
+
+                &:hover {
+                    opacity: 0.7;
                 }
             }
-            .contacts {
-                left: 0;
-                width:calc(100% - 20px);
-                top:250px;
-                margin-bottom: 100px;
+        }
+
+        .button {
+            margin-bottom: 30px;
+        }
+
+        .hero-qr {
+            max-width: 200px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .hero-tg-link {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    // Подвал
+    .hero-footer {
+        width: 100%;
+        max-width: 700px;
+        height: 80px;
+        border-top: 1px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: auto;
+        flex-direction: column;
+
+        p {
+            margin: 0;
+        }
+
+        img {
+            height: 30px;
+            width:auto;
+        }
+    }
+}
+
+// Анимация появления заголовка
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Адаптация для планшетов (до 1024px)
+@media (max-width: 1024px) {
+    .hero-section {
+        .hero-content {
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-phone {
+                font-size: 28px;
+            }
+        }
+
+        .hero-header {
+            .logo img {
+                height: 40px;
+            }
+
+            .social {
+                gap: 15px;
+
+                a .sprite_icon {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+        }
+    }
+}
+
+// Адаптация для мобильных устройств (до 768px)
+@media (max-width: 768px) {
+    .hero-section {
+        .container {
+            padding: 15px;
+        }
+
+        .hero-header {
+            .logo img {
+                height: 35px;
+            }
+
+            .social {
+                gap: 12px;
+
+                a .sprite_icon {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        .hero-content {
+            .hero-title {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .hero-phone {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .button {
+                margin-bottom: 20px;
+            }
+
+            .hero-qr {
+                max-width: 150px;
+                margin-bottom: 15px;
+            }
+
+            .hero-tg-link {
+                font-size: 14px;
+            }
+        }
+
+        .hero-footer {
+            height: 70px;
+            gap: 8px;
+            font-size: 14px;
+
+            img {
+                height: 25px;
+            }
+        }
+    }
+}
+
+// Адаптация для маленьких мобильных устройств (до 480px)
+@media (max-width: 480px) {
+    .hero-section {
+        .container {
+            padding: 10px;
+        }
+
+        .hero-header {
+            .logo img {
+                height: 30px;
+            }
+
+            .social {
+                gap: 10px;
+
+                a .sprite_icon {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+
+        .hero-content {
+            .hero-title {
+                font-size: 22px;
+                margin-bottom: 15px;
+                line-height: 1.2;
+            }
+
+            .hero-phone {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .button {
+                margin-bottom: 15px;
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .hero-qr {
+                max-width: 120px;
+                margin-bottom: 10px;
+            }
+
+            .hero-tg-link {
+                font-size: 12px;
+            }
+        }
+
+        .hero-footer {
+            height: 60px;
+            gap: 5px;
+            font-size: 12px;
+            img {
+                height: 20px;
             }
         }
     }
