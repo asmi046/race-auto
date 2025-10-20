@@ -18,7 +18,7 @@ class SenderConsultController extends Controller
         $data = $request->validated();
 
 
-        $tmp = $tgsender->handle("<b>Подбор запчасти:</b>\n\rVIN: ".$data['vin']."\n\rАвто: ".$data['model']."\n\rТелефон: ".$data['phone']);
+        $tmp = $tgsender->handle("<b>Подбор запчасти:</b>\n\rVIN: ".$data['vin']."\n\rДеталь: ".$data['part']."\n\rТелефон: ".$data['phone']);
 
 
         // Mail::to(explode(",",config('consultation.mailadresat')))->send(new ConsultMail($data));

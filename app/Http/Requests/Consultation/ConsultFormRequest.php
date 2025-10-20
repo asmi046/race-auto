@@ -24,7 +24,7 @@ class ConsultFormRequest extends FormRequest
         return [
             'vin.required' => 'Поле "VIN номер" обязательно для заполнения',
             'vin.string' => 'VIN номер должен быть строкой',
-            'model.string' => 'Модель автомобиля должна быть строкой',
+            'part.string' => 'Поле Деталь должно быть строкой',
             'phone.required' => 'Поле "Телефон" обязательно для заполнения',
             'phone.string' => 'Телефон должен быть строкой',
         ];
@@ -39,7 +39,7 @@ class ConsultFormRequest extends FormRequest
     {
         return [
             "vin" => ['required', 'string'],
-            "model" => ['nullable','string'],
+            "part" => ['nullable','string'],
             "phone" => ['required','string'],
         ];
     }

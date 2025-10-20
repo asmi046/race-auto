@@ -36,7 +36,7 @@
             <p class="hero-phone">
                 <a href="tel:+79260985808">+7 (926) 098-58-08</a>
             </p>
-            <button class="button">Заказать онлайн</button>
+            <a href="#order" class="button">Заказать онлайн</a>
             <img src="/img/tg_qr.svg" alt="QR Code" class="hero-qr">
             <a href="https://t.me/raceauto" class="hero-tg-link">https://t.me/raceauto</a>
         </div>
