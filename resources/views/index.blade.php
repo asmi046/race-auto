@@ -38,7 +38,7 @@
             </p>
             <a href="#order" class="button">Заказать онлайн</a>
             <img src="/img/tg_qr.svg" alt="QR Code" class="hero-qr">
-            <a href="https://t.me/raceauto" class="hero-tg-link">https://t.me/raceauto</a>
+            <a href="https://t.me/raceauto" class="hero-tg-link">Наш телеграмм канал</a>
         </div>
 
         <!-- Подвал -->

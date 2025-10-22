@@ -17,7 +17,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.7);
         z-index: 1;
     }
 
@@ -37,11 +37,18 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        padding-top: 10px;
         margin-bottom: auto;
 
-        .logo img {
-            height: 50px;
+        .logo {
+            display: flex;
+            align-items: center;
+
+            img {
+                height: 50px;
+                width: auto;
+                display: block;
+            }
         }
 
         .social {
@@ -188,11 +195,16 @@
     .hero-section {
         .container {
             padding: 15px;
+            padding-top: 20px;
         }
 
         .hero-header {
-            .logo img {
-                height: 35px;
+            padding-top: 15px;
+
+            .logo {
+                img {
+                    height: 35px;
+                }
             }
 
             .social {
@@ -246,12 +258,17 @@
 @media (max-width: 480px) {
     .hero-section {
         .container {
-            padding: unset;
+            padding: 10px;
+            padding-top: 20px;
         }
 
         .hero-header {
-            .logo img {
-                height: 30px;
+            padding-top: 15px;
+
+            .logo {
+                img {
+                    height: 30px;
+                }
             }
 
             .social {
@@ -298,6 +315,39 @@
             font-size: 12px;
             img {
                 height: 20px;
+            }
+        }
+    }
+}
+
+// Специальный фикс для iOS Safari
+@supports (-webkit-touch-callout: none) {
+    .hero-section {
+        .container {
+            padding-top: max(20px, env(safe-area-inset-top));
+        }
+
+        .hero-header {
+            padding-top: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            .container {
+                padding-top: max(25px, env(safe-area-inset-top));
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-section {
+            .container {
+                padding-top: max(25px, env(safe-area-inset-top));
+            }
+
+            .hero-header {
+                padding-top: 20px;
             }
         }
     }
